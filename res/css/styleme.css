@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(85, 85, 85);
+    color: azure
+}
+
+h1, h3 {
+    color: rgb(101, 205, 253);
+    font-family: 'Arial Black'
+}
+
+p:first-child:first-letter {
+    color: #903; 
+    float: left;
+    font-family: Georgia;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+  }
+
+.imdb_link>a:link {
+    color: rgb(165, 0, 0);
+    text-decoration: none
+}
+
+.highlight {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: bisque
+}
