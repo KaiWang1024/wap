@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /* runs test to see if expected argument is === to value returned by function2test argument */
+        function myFunctionTest(expected, function2test) {
+            if (expected === function2test()) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + function2test();
+            }
+        }
+
+        function myArrayTest(expected, function2test) {
+            let result = function2test();
+            if (result.join("") === expected.join("")) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + result;
+            }
+        }
+
+        function myArrayValueTest(expected, values) {
+            if (values.join("") === expected.join("")) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + result;
+            }
+        }
+
+        function myValueTest(expected, value) {
+            if (expected === value) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + function2test();
+            }
+        }
+
+        /* max returns the maximum of 2 arguments */
+        function max(a, b) {
+            if (a > b) {
+                return a;
+            } else {
+                return b;
+            }
+        }
+        console.log("Expected output of max(20,10) is 20  " + myFunctionTest(20, function () {
+            return max(20, 10);
+        }));
+
+        /* max3 takes 3 numbers as arguments and returns the largest */
+        function maxOfThree(a, b, c) {
+            return max(max(a, b), c);
+
+        }
+
+        console.log("Expected output of maxOfThree(5,4,44) is 44  " + myFunctionTest(44, function () {
+            return maxOfThree(5, 4, 44);
+        }));
+        console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(55, function () {
+            return maxOfThree(55, 4, 44);
+        }));
+
+        function isVowel(c) {
+            return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
+        }
+
+        console.log("Expected output of isVowel('e') is true " + myFunctionTest(true, function () {
+            return isVowel("e");
+        }));
+        console.log("Expected output of isVowel('o') is true " + myFunctionTest(true, function () {
+            return isVowel("o");
+        }));
+        console.log("Expected output of isVowel('z') is false " + myFunctionTest(false, function () {
+            return isVowel("z");
+        }));
+
+        function sum(array) {
+            let total = 0;
+            array.forEach(element => {
+                total += element;
+            });
+            return total;
+        }
+
+        console.log("Expected output of sum([1,2,3,4]) is 10 " + myFunctionTest(10, function() {
+            return sum([1,2,3,4]);
+        }));
+
+        function multiply(array) {
+            let total = 1;
+            array.forEach(element => {
+                total *= element;
+            });
+            return total;
+        }
+
+        console.log("Expected output of multiply([1,2,3,4]) is 24 " + myFunctionTest(24, function() {
+            return multiply([1,2,3,4]);
+        }));
+
+        function reverse(str) {
+            return str.split("").reverse().join("");
+        }
+
+        console.log("Expected output of reverse('jag testar') is 'ratset gaj' " + myFunctionTest('ratset gaj', function() {
+            return reverse('jag testar');
+        }));
+
+        function findLongestWord(array) {
+            let longest = 0;
+            array.forEach(element => {
+                if (element.length > longest) {
+                    longest = element.length;
+                }
+            });
+
+            return longest;
+        }
+
+        console.log("Expected output of findLongestWord(['apple', 'google', 'microsoft', 'facebook']) is 9 " + myFunctionTest(9, function() {
+            return findLongestWord(['apple', 'google', 'microsoft', 'facebook']);
+        }));
+
+        function filterLongWords(words, i) {
+            let arr = [];
+            words.forEach(element => {
+                if (element.length > i) {
+                    arr.push(element);
+                }
+            });
+            return arr;
+        }
+
+        console.log("Expected output of filterLongWords(['apple', 'google', 'microsoft', 'facebook'], 6) is ['microsoft', 'facebook'] " + myArrayTest(['microsoft', 'facebook'], function() {
+            return filterLongWords(['apple', 'google', 'microsoft', 'facebook'], 6);
+        }));
+
+        const a = [1,3,5,3,3];
+        console.log("a = [" + a + "]");
+        //translate/map all elements in an array to another set of values
+        const b = a.map(function(elem, i, array) {
+            return elem * 10;
+        })  // [10,30,50,30,30]
+        console.log("Expected output of a.map() is [10,30,50,30,30] " + myArrayValueTest([10,30,50,30,30], b));
+
+        //select elements based on a condition
+        const c = a.filter(function(elem, i, array) {
+            return elem === 3;
+        }); //[3,3,3]
+        console.log("Expected output of a.filter() is [3,3,3] " + myArrayValueTest([3,3,3], c));
+
+        //find first element or index of first element satisfying condition
+        const d = a.find(function(elem) {return elem > 1;}); //3
+        const e = a.findIndex(function(elem) {return elem > 1;}); //1
+        //find a cumulative or concatenated value based on elements across the array
+        const f = a.reduce(function(accumulator, currentValue, currentIndex, array) {
+            return accumulator * currentValue;
+        }); //135
+        console.log("Expected output of a.reduce() is 135 " + myValueTest(135, f));
+
+    </script>
+</head>
+<body>
+
+Look in the Chrome developer console to see the output. CTRL_SHIFT_J
+
+</body>
+</html>
