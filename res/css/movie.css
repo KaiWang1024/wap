@@ -130,7 +130,7 @@ dt {
 
 ul {
     list-style-type: none;
-    padding-inline-start: 0;
+    padding-inline-start: 0px;
 }
 
 .bottom {
