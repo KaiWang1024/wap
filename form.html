@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <title>Lab 4: Form</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Lab4: Form">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <form>
+            <div class="col-md-4 mb-3">
+                <label for="taskInput">Task</label>
+                <input type="text" class="form-control" id="taskInput" placeholder="Enter a task">
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="dateInput">Required by</label>
+                <input type="date" class="form-control" id="dateInput">
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="taskInput">Category</label>
+                <select class="form-control" id="categoryInput">
+                    <option>Personal</option>
+                    <option>Work</option>
+                </select>
+            </div>
+            <div class="col-md-2 mb-3">
+                <button type="submit" class="btn btn-primary">Save task</button>
+                <button type="submit" class="btn btn-primary">Clear task</button>
+            </div>
+        </form>
+
+        <table class="table table-striped table-bordered col-xl-10 ml-3">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col" class="text-center">Name</th>
+                    <th scope="col" class="text-center">Due</th>
+                    <th scope="col" class="text-center">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Return library books</td>
+                    <td>2013-10-14</td>
+                    <td>Personal</td>
+                </tr>
+                <tr>
+                    <td>Perform project demo to stakeholders</td>
+                    <td>2013-10-14</td>
+                    <td>Work</td>
+                </tr>
+                <tr>
+                    <td>Meet friends for dinner</td>
+                    <td>2013-10-14</td>
+                    <td>Personal</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col-md-2 mb-3">
+            <button type="submit" class="btn btn-primary">Add task</button>
+        </div>
+
+        <p>
+            <a href="https://validator.w3.org/check/referer"> 
+                <img src=http://mumstudents.org/cs472/2013-09/images/w3c-html.png alt="Validate" /> 
+            </a>
+        </p>
+    </body>
+</html>
