@@ -7,35 +7,17 @@
 
         /* runs test to see if expected argument is === to value returned by function2test argument */
         function myFunctionTest(expected, function2test) {
-            if (expected === function2test()) {
-                return "TEST SUCCEEDED";
-            } else {
-                return "TEST FAILED.  Expected " + expected + " found " + function2test();
-            }
-        }
-
-        function myArrayTest(expected, function2test) {
             let result = function2test();
-            if (result.join("") === expected.join("")) {
+            if (Array.isArray(result)) {
+                result = result.join("");
+            }
+            if (Array.isArray(expected)) {
+                expected = expected.join("");
+            }
+            if (expected === result) {
                 return "TEST SUCCEEDED";
             } else {
                 return "TEST FAILED.  Expected " + expected + " found " + result;
-            }
-        }
-
-        function myArrayValueTest(expected, values) {
-            if (values.join("") === expected.join("")) {
-                return "TEST SUCCEEDED";
-            } else {
-                return "TEST FAILED.  Expected " + expected + " found " + result;
-            }
-        }
-
-        function myValueTest(expected, value) {
-            if (expected === value) {
-                return "TEST SUCCEEDED";
-            } else {
-                return "TEST FAILED.  Expected " + expected + " found " + function2test();
             }
         }
 
@@ -135,32 +117,40 @@
             return arr;
         }
 
-        console.log("Expected output of filterLongWords(['apple', 'google', 'microsoft', 'facebook'], 6) is ['microsoft', 'facebook'] " + myArrayTest(['microsoft', 'facebook'], function() {
+        console.log("Expected output of filterLongWords(['apple', 'google', 'microsoft', 'facebook'], 6) is ['microsoft', 'facebook'] " + myFunctionTest(['microsoft', 'facebook'], function() {
             return filterLongWords(['apple', 'google', 'microsoft', 'facebook'], 6);
         }));
 
+        function mapArrayByTen(array) {
+            return a.map(function(elem, i, array) {
+                return elem * 10;
+            });
+        }
+
         const a = [1,3,5,3,3];
-        console.log("a = [" + a + "]");
-        //translate/map all elements in an array to another set of values
-        const b = a.map(function(elem, i, array) {
-            return elem * 10;
-        })  // [10,30,50,30,30]
-        console.log("Expected output of a.map() is [10,30,50,30,30] " + myArrayValueTest([10,30,50,30,30], b));
 
-        //select elements based on a condition
-        const c = a.filter(function(elem, i, array) {
-            return elem === 3;
-        }); //[3,3,3]
-        console.log("Expected output of a.filter() is [3,3,3] " + myArrayValueTest([3,3,3], c));
+        console.log("Expected output of mapArrayByTen([1,3,5,3,3]) is [10,30,50,30,30] " + myFunctionTest([10,30,50,30,30], function() {
+            return mapArrayByTen(a);
+        }));
 
-        //find first element or index of first element satisfying condition
-        const d = a.find(function(elem) {return elem > 1;}); //3
-        const e = a.findIndex(function(elem) {return elem > 1;}); //1
-        //find a cumulative or concatenated value based on elements across the array
-        const f = a.reduce(function(accumulator, currentValue, currentIndex, array) {
-            return accumulator * currentValue;
-        }); //135
-        console.log("Expected output of a.reduce() is 135 " + myValueTest(135, f));
+        function filterArrayByThree(array) {
+            return a.filter(function(elem, i, array) {
+                return elem === 3;
+            });
+        }
+
+        console.log("Expected output of filterArrayByThree([1,3,5,3,3]) is [3,3,3] " + myFunctionTest([3,3,3], function() {
+            return filterArrayByThree(a);
+        }));
+
+        function reduceArrayByProduct(array) {
+            return a.reduce(function(accumulator, currentValue, currentIndex, array) {
+                return accumulator * currentValue;
+            });
+        }
+        console.log("Expected output of reduceArrayByProduct([1,3,5,3,3]) is 135 " + myFunctionTest(135, function() {
+            return reduceArrayByProduct(a);
+        }));
 
     </script>
 </head>
