@@ -100,3 +100,31 @@ function initText() {
     const texts = ANIMATIONS[aniSelect.value].split('=====');
     textArea.value = texts[0];
 }
+
+// Array Methods
+
+function sum(array) {
+    return array.reduce(function(accum, current) {
+        return accum + current;
+    });
+}
+
+function multiply(array) {
+    return array.reduce(function(accum, current) {
+        return accum * current;
+    });
+}
+
+function reverse(str) {
+    let res = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        res += str[i];
+    }
+    return res;
+}
+
+function filterLongWords(words, i) {
+    return words.filter(function(current) {
+        return current.length > i;
+    });
+}
