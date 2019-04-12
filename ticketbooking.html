@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="res/css/ticketbooking.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="res/js/booking.js"></script>
+</head>
+<body>
+<div id="error">
+
+</div>
+<form id="form">
+    <p>
+        Name
+        <input type="text" name="name" id="name" pattern="\w+" title="Must be letter" required>
+    </p>
+    <p>
+        Street
+        <input type="text" name="street" id="street" required>
+    </p>
+    <p>
+        State
+        <select name="state" id="state" required>
+            <option value="" disabled selected>Select One</option>
+            <option value="IA">Iowa</option>
+            <option value="CA">California</option>
+            <option value="FL">Florida</option>
+            <option value="NY">New York</option>
+        </select>
+    </p>
+    <p>
+        Zip Code
+        <input type="text" name="zip" id="zip" required>
+    </p>
+    <p>
+        How many seats?
+        <input type="text" name="seats" id="seats" required>
+    </p>
+    <p>
+        <fieldset>
+            <legend>Which taxi do you require?</legend>
+            <input type="radio" name="taxi" value="car"> Car<br>
+            <input type="radio" name="taxi" value="van"> Van<br>
+            <input type="radio" name="taxi" value="tuk"> Tuk Tuk<br>
+        </fieldset>
+    </p>
+    <p>
+        <fieldset>
+            <legend>Extras</legend>
+            <input type="checkbox" name="extra" value="baby"> Baby Seat<br>
+            <input type="checkbox" name="extra" value="wheel"> Wheelchair Access<br>
+            <input type="checkbox" name="extra" value="stock"> Stock Tip<br>
+        </fieldset>
+    </p>
+    <p>
+        Special Instructions
+        <textarea rows="2"></textarea>
+    </p>
+    <p>
+        <input type="submit" value="Submit booking" id="submitBtn">
+    </p>
+    
+</form>
+
+</body>
+</html>

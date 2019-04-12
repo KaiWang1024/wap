@@ -104,7 +104,7 @@ tod.teach("ASD");
     const Student = function (name, age, major) {
         Person.call(this, name, age);
         this.major = major;
-    }
+    };
     Student.prototype = Object.create(Person.prototype);
     Student.prototype.greeting = function () {
         console.log(`Hey, my name is ${this.name} and I am studying ${this.major}.`);
@@ -117,7 +117,7 @@ tod.teach("ASD");
     const Professor = function (name, age, department) {
         Person.call(this, name, age);
         this.department = department;
-    }
+    };
     Professor.prototype = Object.create(Person.prototype);
     Professor.prototype.salute = function () {
         console.log(`Good day, my name is ${this.name} and I am in the ${this.department} department.`);
